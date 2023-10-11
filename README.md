@@ -26,7 +26,7 @@
 | category_id          | integer    | null: false                    |
 | item_condition_id    | integer    | null: false                    |
 | freight_id           | integer    | null: false                    |
-| region_id            | integer    | null: false                    |
+| prefecture_id        | integer    | null: false                    |
 | ship_date_id         | integer    | null: false                    |
 | price                | integer    | null: false                    |
 | user                 | references | null: false, foreign_key: true |
@@ -54,9 +54,10 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | postal_code        | string     | null: false                    |
-| ship_to_address    | string     | null: false                    |
-| ship_address       | string     | null: false                    |
-| ship_city          | string     | null: false                    |
+| prefecture_id      | integer    | null: false                    |
+| city               | string     | null: false                    |
+| block              | string     | null: false                    |
+| building           | string     |                                |
 | order              | references | null: false, foreign_key: true |
 
 ### Association
