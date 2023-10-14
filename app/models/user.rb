@@ -7,5 +7,6 @@ class User < ApplicationRecord
   [:nickname, :last_name, :first_name, :last_name_kana, :first_name_kana, :birthday].each do |v|
           validates v, presence: true
    end
-  validates :nickname, length: { maximam: 40 } 
+  validates :nickname, length: { maximum: 40 }
+  validates :password, length: { minimum: 6 }
 end
