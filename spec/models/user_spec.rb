@@ -30,22 +30,24 @@ RSpec.describe User, type: :model do
       it 'last_nameが空では登録できない' do
         @user.last_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name can't be blank", "Last name Input full-width characters")
+        expect(@user.errors.full_messages).to include("Last name can't be blank", 'Last name Input full-width characters')
       end
       it 'first_nameが空では登録できない' do
         @user.first_name = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name can't be blank", "First name Input full-width characters")
+        expect(@user.errors.full_messages).to include("First name can't be blank", 'First name Input full-width characters')
       end
       it 'last_name_kanaが空では登録できない' do
         @user.last_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana can't be blank", "Last name kana Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include("Last name kana can't be blank",
+                                                      'Last name kana Input full-width katakana characters')
       end
       it 'first_name_kanaが空では登録できない' do
         @user.first_name_kana = ''
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana can't be blank", "First name kana Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include("First name kana can't be blank",
+                                                      'First name kana Input full-width katakana characters')
       end
       it 'birthdayが空では登録できない' do
         @user.birthday = ''
@@ -60,50 +62,50 @@ RSpec.describe User, type: :model do
       it 'nicknameが41文字以上では登録できない' do
         @user.nickname = Faker::Lorem.characters(number: 41)
         @user.valid?
-        expect(@user.errors.full_messages).to include("Nickname is too long (maximum is 40 characters)")
+        expect(@user.errors.full_messages).to include('Nickname is too long (maximum is 40 characters)')
       end
       it '重複したemailが存在する場合は登録できない' do
         @user.save
         user2 = FactoryBot.build(:user)
         user2.email = @user.email
         user2.valid?
-        expect(user2.errors.full_messages).to include("Email has already been taken")
+        expect(user2.errors.full_messages).to include('Email has already been taken')
       end
       it 'emailは@を含まないと登録できない' do
         @user.email = 'test.com'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Email is invalid")
+        expect(@user.errors.full_messages).to include('Email is invalid')
       end
       it 'passwordが5文字以下では登録できない' do
         @user.password = '12345'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Password is too short (minimum is 6 characters)")
+        expect(@user.errors.full_messages).to include('Password is too short (minimum is 6 characters)')
       end
       it 'passwordが129文字以上では登録できない' do
         @user.password = Faker::Internet.password(min_length: 130, max_length: 150)
         @user.valid?
         @user.password_confirmation = @user.password
-        expect(@user.errors.full_messages).to include("Password is too long (maximum is 128 characters)")
+        expect(@user.errors.full_messages).to include('Password is too long (maximum is 128 characters)')
       end
       it 'last_nameは半角では登録できない' do
         @user.last_name = 'abc'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name Input full-width characters")
+        expect(@user.errors.full_messages).to include('Last name Input full-width characters')
       end
       it 'first_nameは半角では登録できない' do
         @user.first_name = 'abc'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name Input full-width characters")
+        expect(@user.errors.full_messages).to include('First name Input full-width characters')
       end
       it 'last_name_kanaは全角カタカナ以外では登録できない' do
         @user.last_name_kana = 'aあ亜'
         @user.valid?
-        expect(@user.errors.full_messages).to include("Last name kana Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('Last name kana Input full-width katakana characters')
       end
       it 'first_name_kanaは全角カタカナ以外では登録できない' do
         @user.first_name_kana = 'aあ亜'
         @user.valid?
-        expect(@user.errors.full_messages).to include("First name kana Input full-width katakana characters")
+        expect(@user.errors.full_messages).to include('First name kana Input full-width katakana characters')
       end
     end
   end
