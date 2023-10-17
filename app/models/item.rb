@@ -4,4 +4,5 @@ class Item < ApplicationRecord
   belongs_to :item_condition
   belongs_to :freight
   belongs_to :prefecture
+  belongs_to :ship_date
 end
