@@ -14,4 +14,6 @@ class Item < ApplicationRecord
     validates v, numericality: { other_than: 1 , message: "can't be blank"}
   end
 
+  has_one_attached :image
+
 end
