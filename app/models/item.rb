@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :ship_date
 
-  [:item_name, :description, :category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id, :price].each do |v|
+  [:image, :item_name, :description, :category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id, :price].each do |v|
     validates v, presence: true
   end
 
