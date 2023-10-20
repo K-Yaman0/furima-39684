@@ -10,14 +10,13 @@ class Item < ApplicationRecord
     validates v, presence: true
   end
 
-  validates :price, numericality: { message: "is invalid. Input half-width characters" }
-  validates :price, numericality: { in: 300..9999999, message: "is out of setting range" }
+  validates :price, numericality: { message: 'is invalid. Input half-width characters' }
+  validates :price, numericality: { in: 300..9_999_999, message: 'is out of setting range' }
 
   [:category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id].each do |v|
-    validates v, numericality: { other_than: 1 , message: "can't be blank" }
+    validates v, numericality: { other_than: 1, message: "can't be blank" }
   end
 
   has_one_attached :image
   belongs_to :user
-
 end
