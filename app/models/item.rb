@@ -10,6 +10,7 @@ class Item < ApplicationRecord
     validates v, presence: true
   end
 
+  validates :price, numericality: { message: "is invalid. Input half-width characters" }
   validates :price, numericality: { in: 300..9999999, message: "is out of setting range" }
 
   [:category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id].each do |v|
