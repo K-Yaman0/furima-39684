@@ -15,4 +15,7 @@ class User < ApplicationRecord
 
   validates :nickname, length: { maximum: 40 }
   validates :password, length: { minimum: 6 }
+
+  has_many :items
+
 end
