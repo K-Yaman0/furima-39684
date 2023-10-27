@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   end
 
   validates :price, numericality: { message: 'is invalid. Input half-width characters' }
-  validates :price, numericality: { in: 300..9_999_999, message: 'is out of setting range' }
+  validates :price, numericality: { only_integer: true, in: 300..9_999_999, message: 'is out of setting range' }
 
   validates :item_name, length: { maximum: 40 }
   validates :description, length: { maximum: 1000 }
