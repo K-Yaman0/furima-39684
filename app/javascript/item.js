@@ -4,8 +4,8 @@ function profitCalculation(){
   const calcProfit = document.getElementById("profit");
 
   priceInput.addEventListener('input', function(){
-    calcSalesCommission.innerHTML = Math.round(priceInput.value * 0.1);
-    calcProfit.innerHTML = Math.round(priceInput.value -  Math.round(priceInput.value * 0.1));
+    calcSalesCommission.innerHTML = Math.floor(priceInput.value * 0.1);
+    calcProfit.innerHTML = Math.floor(priceInput.value -  Math.floor(priceInput.value * 0.1));
   });
 
 }
