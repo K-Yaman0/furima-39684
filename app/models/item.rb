@@ -6,10 +6,15 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :ship_date
 
-  [:image, :item_name, :description, :category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id, :price].each do |v|
+  [:image, :item_name, :description].each do |v|
     validates v, presence: true
   end
 
+  [:category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id].each do |v|
+    validates v, numericality: { other_than: 0, message: "can't be blank" } 
+  end
+
+  validates :price, presence: true
   validates :price, numericality: { message: 'is invalid. Input half-width characters' }
   validates :price, numericality: { only_integer: true, in: 300..9_999_999, message: 'is out of setting range' }
 
