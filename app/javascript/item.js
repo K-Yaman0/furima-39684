@@ -8,6 +8,6 @@ function profitCalculation(){
     calcProfit.innerHTML = Math.floor(priceInput.value -  Math.floor(priceInput.value * 0.1));
   });
 
-}
+};
 
 window.addEventListener('load', profitCalculation)
