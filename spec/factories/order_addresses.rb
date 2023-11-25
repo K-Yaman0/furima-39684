@@ -7,7 +7,5 @@ FactoryBot.define do
     block               { Faker::Address.street_address }
     building            { Faker::Company.name }
     phone_number        { Faker::Number.number(digits: rand(10..11)) }
-    association :user
-    association :item
   end
 end
