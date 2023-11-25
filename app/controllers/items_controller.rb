@@ -20,7 +20,7 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    return if user_signed_in? && current_user.id == @item.user.id
+    return if user_signed_in? && current_user.id == @item.user.id && !@item.order.present?
 
     redirect_to action: :index
   end
@@ -35,7 +35,7 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item.user != current_user
-      redirect_to  root_path
+      redirect_to root_path
     else
       @item.destroy
     end
