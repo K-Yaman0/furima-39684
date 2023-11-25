@@ -69,12 +69,12 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order_address.errors.full_messages).to include('Postal code is invalid. Enter it as follows (e.g. 123-4567)')
       end
       it 'phone_numberが10桁未満では購入できない' do
-        @order_address.phone_number = 123456789
+        @order_address.phone_number = 123_456_789
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is too short')
       end
       it '電話番号が12桁以上では購入できない' do
-        @order_address.phone_number = 123456789012
+        @order_address.phone_number = 123_456_789_012
         @order_address.valid?
         expect(@order_address.errors.full_messages).to include('Phone number is invalid. Input only number')
       end
