@@ -21,32 +21,32 @@ RSpec.describe OrderAddress, type: :model do
       it 'postal_codeが空では購入できない' do
         @order_address.postal_code = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("郵便番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('郵便番号を入力してください')
       end
       it 'prefecture_idが0では購入できない' do
         @order_address.prefecture_id = 0
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("都道府県を入力してください")
+        expect(@order_address.errors.full_messages).to include('都道府県を入力してください')
       end
       it 'cityが空では購入できない' do
         @order_address.city = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("市区町村を入力してください")
+        expect(@order_address.errors.full_messages).to include('市区町村を入力してください')
       end
       it 'blockが空では購入できない' do
         @order_address.block = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("番地を入力してください")
+        expect(@order_address.errors.full_messages).to include('番地を入力してください')
       end
       it 'phone_numberが空では購入できない' do
         @order_address.phone_number = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("電話番号を入力してください")
+        expect(@order_address.errors.full_messages).to include('電話番号を入力してください')
       end
       it 'tokenが空では購入できない' do
         @order_address.token = ''
         @order_address.valid?
-        expect(@order_address.errors.full_messages).to include("カード情報を正しく入力してください")
+        expect(@order_address.errors.full_messages).to include('カード情報を正しく入力してください')
       end
       it 'userが紐づいていないときは出品できない' do
         @order_address.user_id = nil

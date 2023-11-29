@@ -15,47 +15,47 @@ RSpec.describe Item, type: :model do
       it 'imageが空では出品できない' do
         @item.image = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品画像を入力してください")
+        expect(@item.errors.full_messages).to include('商品画像を入力してください')
       end
       it 'item_nameが空では出品できない' do
         @item.item_name = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品名を入力してください")
+        expect(@item.errors.full_messages).to include('商品名を入力してください')
       end
       it 'descriptionが空では出品できない' do
         @item.description = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の説明を入力してください")
+        expect(@item.errors.full_messages).to include('商品の説明を入力してください')
       end
       it 'category_idが0では出品できない' do
         @item.category_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("カテゴリーを入力してください")
+        expect(@item.errors.full_messages).to include('カテゴリーを入力してください')
       end
       it 'item_condition_idが0では出品できない' do
         @item.item_condition_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("商品の状態を入力してください")
+        expect(@item.errors.full_messages).to include('商品の状態を入力してください')
       end
       it 'freight_idが0では出品できない' do
         @item.freight_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("配送料の負担を入力してください")
+        expect(@item.errors.full_messages).to include('配送料の負担を入力してください')
       end
       it 'prefecture_idが0では出品できない' do
         @item.prefecture_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送元の地域を入力してください")
+        expect(@item.errors.full_messages).to include('発送元の地域を入力してください')
       end
       it 'ship_date_idが0では出品できない' do
         @item.ship_date_id = 0
         @item.valid?
-        expect(@item.errors.full_messages).to include("発送までの日数を入力してください")
+        expect(@item.errors.full_messages).to include('発送までの日数を入力してください')
       end
       it 'priceが空では出品できない' do
         @item.price = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("価格を入力してください")
+        expect(@item.errors.full_messages).to include('価格を入力してください')
       end
       it 'item_nameが41文字以上では出品できない' do
         @item.item_name = Faker::Lorem.characters(number: 41)

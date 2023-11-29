@@ -11,7 +11,7 @@ class Item < ApplicationRecord
   end
 
   [:category_id, :item_condition_id, :freight_id, :prefecture_id, :ship_date_id].each do |v|
-    validates v, numericality: { other_than: 0, message: "を入力してください" }
+    validates v, numericality: { other_than: 0, message: 'を入力してください' }
   end
 
   validates :price, presence: true
