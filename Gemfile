@@ -96,3 +96,7 @@ gem 'payjp'
 gem 'gon'
 
 gem 'rails-i18n'
+
+group :production do
+  gem 'unicorn', '6.1.0'
+end
